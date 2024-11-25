@@ -1,0 +1,633 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <section class="text-center my-5 py-5" style="background-color: #82E0AA;">
+        <div class="container">
+            <!-- Título con animación -->
+            <h1 class="display-4 fw-bold text-dark animated-title">Bienvenido a mi portafolio personal</h1>
+            <p class="lead mt-4 text-dark">
+                Soy <strong>Alesandro Solis</strong>, un apasionado de la <strong>tecnología educativa</strong> y del <strong>desarrollo de software</strong>.
+            </p>
+            <p class="mt-4 text-dark">
+                En este portafolio podrás encontrar:
+            </p>
+            <ul class="list-unstyled text-dark">
+                <li>- Una selección de mis <strong>proyectos destacados</strong>, donde aplico conocimientos en <strong>desarrollo front-end</strong> y <strong>back-end</strong>.</li>
+                <li>- Información sobre <strong>mí</strong>, mi <strong>formación académica</strong> y mi <strong>experiencia profesional</strong>.</li>
+                <li>- Un espacio para que <strong>me contactes</strong> y discutamos cómo puedo ayudarte en tus <strong>proyectos</strong>.</li>
+            </ul>
+            <p class="mt-4 text-dark">
+                Mi objetivo es <strong>transformar la educación</strong> a través de la <strong>tecnología</strong> e <strong>innovación</strong>, mientras continúo creciendo como <strong>profesional</strong>. ¡Espero que encuentres útil e interesante mi trabajo!
+            </p>
+        </div>
+    </section>
+
+    <style>
+        /* Fondo de la sección */
+        section {
+            background-color: #82E0AA;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título con animación */
+        .animated-title {
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            color: #2C3E50;
+            position: relative;
+            display: inline-block;
+            animation: slide-in 1.5s ease-out;
+        }
+
+        /* Efecto de movimiento en el título */
+        @keyframes slide-in {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Texto principal */
+        .text-dark {
+            color: #2C3E50 !important;
+            font-weight: bold;
+        }
+
+        /* Lista de elementos */
+        .list-unstyled li {
+            font-size: 18px;
+            margin: 10px 0;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Efecto hover en la lista */
+        .list-unstyled li:hover {
+            transform: translateX(10px);
+            color: #000;
+        }
+
+        /* Espaciado y estilos generales */
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+    </style>
+
+        <!-- sobre mi -->
+        <section class="my-5 py-5 shadow-sm text-center" style="background-color: #82E0AA;">
+            <div class="container">
+                <!-- Título animado y centrado -->
+                <h2 class="display-5 fw-bold text-dark mb-4 animated-title">Sobre Mí</h2>
+                <div class="row justify-content-center">
+                    <!-- Imagen del Perfil centrada -->
+                    <div class="col-md-4 text-center mb-4">
+                        {% if sobre.imagen_perfil %}
+                            <img src="{{ sobre.imagen_perfil.url }}" alt="{{ sobre.nombre }}" 
+                                class="rounded-circle img-fluid shadow profile-img" style="max-width: 200px;">
+                        {% endif %}
+                    </div>
+                    <!-- Resumen Breve centrado -->
+                    <div class="col-md-8">
+                        <p class="text-dark fw-bold mt-3" style="line-height: 1.8; font-size: 18px;">
+                            Soy un apasionado de la <strong>tecnología educativa</strong> y el <strong>desarrollo de software</strong>. 
+                            Actualmente soy <strong>Profesor de Educación Especial</strong> y soy egresado tesista de la 
+                            <strong>Licenciatura en Tecnología Educativa</strong>.
+                        </p>
+                        <p class="text-dark fw-bold mt-3" style="line-height: 1.8; font-size: 18px;">
+                            <strong>Educación:</strong> Finalizando la <strong>Tecnicatura en Desarrollo de Software</strong>.
+                        </p>
+                        <p class="text-dark fw-bold mt-3" style="line-height: 1.8; font-size: 18px;">
+                            <strong>Hobbies:</strong> Disfruto de <strong>hacer deporte</strong>, aprender constantemente y explorar 
+                            nuevas formas de enseñanza.
+                        </p>
+                        <!-- Botón centrado -->
+                        <div class="mt-4">
+                            <a href="{% url 'sobre_mi' %}" class="btn btn-dark btn-lg btn-hover">
+                                Leer más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Fondo y bordes de la sección */
+            section {
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Título animado */
+            .animated-title {
+                animation: fadeIn 1.5s ease-in-out;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Imagen de perfil */
+            .profile-img {
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            }
+
+            .profile-img:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Botón interactivo */
+            .btn-hover {
+                transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            }
+
+            .btn-hover:hover {
+                background-color: #000;
+                transform: scale(1.05);
+            }
+
+            /* Texto */
+            p {
+                line-height: 1.8;
+            }
+        </style>
+
+
+
+
+    <!-- Sección de Habilidades -->
+    <section id="habilidades" class="py-5" style="background-color: #82E0AA;">
+        <div class="container">
+            <!-- Título -->
+            <h2 class="text-center text-dark fw-bold mb-4">Habilidades y Herramientas</h2>
+            <p class="text-center text-dark fw-bold mb-5">
+                Tecnologías y herramientas que utilizo en mis proyectos de desarrollo y educativos.
+            </p>
+
+            <!-- Contenido -->
+            <div class="row">
+                <!-- Front-End -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card shadow border-0 h-100 card-hover" style="background-color: #d6f0ff;">
+                        <div class="card-body text-center">
+                            <h5 class="text-uppercase fw-bold text-primary">Front-End</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li class="fw-bold">HTML</li>
+                                <li class="fw-bold">CSS</li>
+                                <li class="fw-bold">JavaScript</li>
+                                <li class="fw-bold">Bootstrap</li>
+                                <li class="fw-bold">SASS</li>
+                                <li class="fw-bold">Gulp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Back-End -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card shadow border-0 h-100 card-hover" style="background-color: #d6f9d6;">
+                        <div class="card-body text-center">
+                            <h5 class="text-uppercase fw-bold text-success">Back-End</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li class="fw-bold">Python</li>
+                                <li class="fw-bold">C#</li>
+                                <li class="fw-bold">Django</li>
+                                <li class="fw-bold">SQLite</li>
+                                <li class="fw-bold">SQL Server</li>
+                                <li class="fw-bold">MySQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Otras Herramientas -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card shadow border-0 h-100 card-hover" style="background-color: #fff2cc;">
+                        <div class="card-body text-center">
+                            <h5 class="text-uppercase fw-bold text-warning">Otras Herramientas</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li class="fw-bold">Moodle</li>
+                                <li class="fw-bold">Unity (Realidad Aumentada)</li>
+                                <li class="fw-bold">Gestión de Proyectos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas de Control de Versiones -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card shadow border-0 h-100 card-hover" style="background-color: #ccf2f3;">
+                        <div class="card-body text-center">
+                            <h5 class="text-uppercase fw-bold text-info">Control de Versiones</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li class="fw-bold">Git</li>
+                                <li class="fw-bold">GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Fondo y bordes suaves para la sección */
+        section#habilidades {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tarjetas */
+        .card {
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Colores más intensos */
+        .card-hover:hover h5 {
+            color: #000 !important;
+        }
+
+        /* Lista */
+        .list-unstyled li {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Títulos */
+        h2 {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+
+
+    <!-- Sección de Proyectos Destacados -->
+    <section class="my-5 py-5" style="background-color: #82E0AA;">
+        <div class="container">
+            <!-- Título centrado con animación -->
+            <div class="text-center">
+                <h2 class="display-5 fw-bold text-dark mb-4 animated-title">Proyectos Destacados</h2>
+            </div>
+            <div class="row">
+                {% for proyecto in proyectos|slice:":3" %} <!-- Solo los primeros 3 proyectos -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm project-card">
+                            <img src="{{ proyecto.image.url }}" class="card-img-top project-img" alt="{{ proyecto.title }}" style="max-height: 200px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-dark fw-bold">{{ proyecto.title }}</h5>
+                                <p class="card-text text-dark">{{ proyecto.description }}</p>
+                                {% if proyecto.url %}
+                                    <a href="{{ proyecto.url }}" class="btn btn-primary btn-hover">Ver más</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'lista_proyectos' %}" class="btn btn-dark btn-lg btn-hover">Ver todos los proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Fondo de la sección */
+        section {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título centrado y animado */
+        .animated-title {
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tarjetas */
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Imagen de proyecto */
+        .project-img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        /* Botones interactivos */
+        .btn-hover {
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .btn-hover:hover {
+            background-color: #000;
+            transform: scale(1.05);
+            color: #fff !important;
+        }
+
+        /* Texto */
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+
+
+
+
+
+<!-- Sección de Testimonios -->
+<section class="my-5 py-5" style="background-color: #82E0AA;">
+    <div class="container">
+        <!-- Título centrado con animación diferente -->
+        <h2 class="text-center display-5 fw-bold text-dark mb-4 rotate-in-title">Testimonios</h2>
+        
+        <!-- Carrusel de Testimonios -->
+        <div id="testimoniosCarousel" class="carousel slide my-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for testimonio in testimonios %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="text-center p-4">
+                            {% if testimonio.foto %}
+                                <img src="{{ testimonio.foto.url }}" class="rounded-circle shadow profile-img mb-3" alt="{{ testimonio.nombre }}" style="width: 100px; height: 100px; object-fit: cover;">
+                            {% endif %}
+                            <h5 class="text-primary fw-bold">{{ testimonio.nombre }}</h5>
+                            <p class="fst-italic text-dark">"{{ testimonio.testimonio }}"</p>
+                            <small class="text-muted d-block">{{ testimonio.fecha|date:"d M Y" }}</small>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Fondo de la sección */
+    section {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Título animado con rotación */
+    .rotate-in-title {
+        animation: rotateIn 1.5s ease-in-out;
+    }
+
+    @keyframes rotateIn {
+        0% {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.9);
+        }
+        50% {
+            transform: rotate(5deg) scale(1.05);
+        }
+        100% {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+    }
+
+    /* Imagen del testimonio */
+    .profile-img {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .profile-img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Texto del carrusel */
+    h5 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    small {
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* Controles del carrusel */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    /* Carrusel interactividad */
+    .carousel-item {
+        transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    }
+
+    .carousel-item:hover h5,
+    .carousel-item:hover p {
+        color: #000;
+    }
+</style>
+
+
+<style>
+    /* Fondo de la sección */
+    section {
+        background-color: #82E0AA; /* Fondo verde claro */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    }
+
+    /* Imagen del testimonio */
+    .carousel-item img {
+        border: 3px solid #fff; /* Borde blanco */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    }
+
+    /* Títulos y texto */
+    h2 {
+        font-family: 'Arial', sans-serif;
+        text-transform: uppercase;
+    }
+
+    .carousel-item p {
+        color: #333; /* Texto oscuro */
+    }
+
+    .carousel-item h5 {
+        color: #2C3E50; /* Azul oscuro */
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: #2C3E50; /* Color de los botones de control */
+        border-radius: 50%; /* Forma redondeada */
+    }
+</style>
+
+
+    <!-- Sección de Contacto -->
+    <section class="my-5 py-5" style="background-color: #82E0AA;">
+        <div class="container text-center">
+            <!-- Título con animación -->
+            <h2 class="fw-bold text-dark mb-4 animated-contact-title">Contáctame</h2>
+            <p class="text-dark fw-bold fade-in-text mb-4">
+                Si estás interesado en trabajar juntos o tienes alguna pregunta, no dudes en enviarme un mensaje.
+            </p>
+            <a href="{% url 'contacto' %}" class="btn btn-dark btn-lg shadow btn-hover">Ir a la página de contacto</a>
+        </div>
+    </section>
+
+    <style>
+        /* Fondo y diseño general */
+        section {
+            background-color: #82E0AA; /* Fondo verde claro */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animación de fondo dinámico */
+        section:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: moveBackground 5s infinite linear;
+            z-index: 1;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            50% {
+                transform: translateX(-50px) translateY(-50px);
+            }
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+        /* Asegurar que el contenido esté sobre el efecto */
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Título animado */
+        .animated-contact-title {
+            animation: slideInFromBottom 1.5s ease-in-out;
+        }
+
+        @keyframes slideInFromBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Texto con fade-in */
+        .fade-in-text {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Botón interactivo */
+        .btn-hover {
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-hover:hover {
+            background-color: #444;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Texto estilizado */
+        p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+    </style>
+
+
+{% endblock %}
+

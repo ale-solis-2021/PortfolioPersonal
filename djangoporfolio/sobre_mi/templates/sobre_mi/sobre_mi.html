@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="my-5 py-5" style="background-color: #82E0AA;">
+    <div class="container">
+        <h2 class="text-center display-5 fw-bold text-dark mb-5">Sobre Mí</h2>
+        <div class="row align-items-center">
+            <!-- Imagen del Perfil -->
+            <div class="col-md-4 text-center">
+                {% if sobre.imagen_perfil %}
+                    <img src="{{ sobre.imagen_perfil.url }}" alt="{{ sobre.nombre }}" 
+                         class="rounded-circle img-fluid shadow" style="max-width: 250px; border: 5px solid white;">
+                {% endif %}
+            </div>
+            <!-- Información de Biografía -->
+            <div class="col-md-8">
+                <h3 class="fw-bold text-dark">{{ sobre.nombre }}</h3>
+                <p class="text-dark mt-3" style="line-height: 1.8; font-size: 18px;">
+                    {{ sobre.biografia }}
+                </p>
+                <!-- Botón para leer más
+                <div class="text-center text-md-start mt-4">
+                    <a href="{% url 'sobre_mi' %}" class="btn btn-dark btn-lg shadow-sm">Leer más</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Fondo y bordes */
+    section {
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    }
+
+    /* Imagen */
+    .rounded-circle {
+        border-radius: 50%; /* Redondear imagen */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .rounded-circle:hover {
+        transform: scale(1.05); /* Aumentar ligeramente al pasar el ratón */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    }
+
+    /* Títulos */
+    h2 {
+        font-family: 'Arial', sans-serif;
+        text-transform: uppercase;
+    }
+
+    /* Texto */
+    p {
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Botón */
+    .btn-dark {
+        background-color: #333;
+        border: none;
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+
+    .btn-dark:hover {
+        background-color: #000;
+        transform: scale(1.05); /* Efecto hover */
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+{% endblock %}

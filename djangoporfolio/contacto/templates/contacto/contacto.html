@@ -1,0 +1,133 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="my-5 py-5" style="background-color: #82E0AA;">
+    <div class="container">
+        <!-- Título con animación -->
+        <h1 class="text-center text-dark fw-bold mb-4 animated-title">Contacto</h1>
+        <p class="text-center text-dark fw-bold mb-5">Puedes enviarme un mensaje a través del siguiente formulario:</p>
+
+        <!-- Mostrar mensajes de éxito o error -->
+        {% if messages %}
+            <div class="container my-4">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow" role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Formulario -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-body form-card">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label fw-bold">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control form-input" placeholder="Ingresa tu nombre" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bold">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" class="form-control form-input" placeholder="Ingresa tu correo electrónico" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label fw-bold">Mensaje:</label>
+                                <textarea id="mensaje" name="mensaje" class="form-control form-input" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg shadow btn-hover">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center mt-4 text-dark fw-bold fade-in-text">¡Gracias por tu mensaje!</p>
+    </div>
+</section>
+
+<style>
+    /* Fondo y estilo general */
+    section {
+        background-color: #82E0AA; /* Fondo verde claro */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    /* Título animado */
+    .animated-title {
+        animation: zoomIn 1.2s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Texto animado para el agradecimiento */
+    .fade-in-text {
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Tarjeta del formulario */
+    .form-card {
+        background-color: #fdfdfd; /* Fondo claro */
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+        padding: 2rem;
+    }
+
+    /* Inputs del formulario */
+    .form-input {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .form-input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Botón interactivo */
+    .btn-hover {
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    .btn-hover:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+    }
+
+    /* Alertas */
+    .alert {
+        border-radius: 10px;
+        font-weight: bold;
+        padding: 15px;
+    }
+
+    .alert-dismissible .btn-close {
+        color: inherit;
+    }
+</style>
+{% endblock %}

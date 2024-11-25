@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-custom-green shadow">
+  <div class="container">
+    <!-- Logo y Marca -->
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <span class="fw-bold display-5" style="font-size: 1.8rem;">AS</span> <!-- Texto en negrita y más grande -->
+    </a>
+    <!-- Botón de colapso -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'lista_proyectos' %}">Proyectos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'sobre_mi' %}">Sobre mí</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'lista_testimonios' %}">Testimonios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Fondo personalizado para el navbar */
+  .bg-custom-green {
+      background: linear-gradient(45deg, #82E0AA, #A9DFBF, #82E0AA);
+  }
+
+  /* Estilo para la marca y los enlaces */
+  .navbar-brand {
+      color: white !important;
+      font-weight: bold;
+  }
+
+  /* Ajuste del texto "AS" */
+  .navbar-brand span {
+      font-size: 2rem; /* Ajusta el tamaño según lo necesites */
+      font-weight: bold;
+      color: white !important;
+  }
+
+  /* Efecto hover para los enlaces */
+  .nav-link:hover {
+      color: #EAFAF1 !important; /* Verde claro más suave */
+      text-decoration: underline; /* Subrayado en hover */
+  }
+
+  /* Sombra elegante para el navbar */
+  .navbar {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>

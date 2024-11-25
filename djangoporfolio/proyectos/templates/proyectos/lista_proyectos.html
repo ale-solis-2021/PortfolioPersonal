@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="my-5 py-5" style="background-color: #82E0AA;">
+    <div class="container">
+        <!-- Título centrado con animación -->
+        <div class="text-center">
+            <h1 class="display-5 fw-bold text-dark mb-5 animated-title">Todos los Proyectos</h1>
+        </div>
+        <div class="row gy-4">
+            {% for proyecto in proyectos %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow project-card-alt">
+                        <div class="card-img-container position-relative">
+                            <img src="{{ proyecto.image.url }}" class="card-img-top img-fluid" alt="{{ proyecto.title }}" style="object-fit: cover; height: 200px; border-radius: 10px 10px 0 0;">
+                            <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                                <a href="{{ proyecto.url }}" class="btn btn-primary text-white fw-bold">Ver Proyecto</a>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-dark fw-bold">{{ proyecto.title }}</h5>
+                            <p class="card-text text-muted">{{ proyecto.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Fondo de la sección */
+    section {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Título animado */
+    .animated-title {
+        animation: fadeInUp 1.5s ease-in-out;
+        text-transform: uppercase;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Tarjetas alternativas */
+    .project-card-alt {
+        background: linear-gradient(145deg, #ffffff, #f2f2f2);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-card-alt:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Contenedor de la imagen */
+    .card-img-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* Imagen con efecto */
+    .card-img-top {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card-alt:hover .card-img-top {
+        transform: scale(1.1);
+    }
+
+    /* Overlay de la imagen */
+    .overlay {
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-card-alt:hover .overlay {
+        opacity: 1;
+    }
+
+    /* Texto */
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-text {
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* Botón en overlay */
+    .overlay .btn {
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
